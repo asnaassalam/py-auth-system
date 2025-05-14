@@ -5,7 +5,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 ## 🚀 Project Phases & Features
 
 ### ⏳ Phase 1: CLI (In-Memory Dictionary)
-- [x] Register new users
+- [ ] Register new users
 - [ ] Login existing users
 - [ ] View user profile
 - [ ] Change/reset Password
