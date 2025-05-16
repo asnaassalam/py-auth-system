@@ -1,3 +1,4 @@
+# Function to display a styled message box
 def display_message(user_text):
     box_width = 36
     text = user_text
@@ -6,6 +7,7 @@ def display_message(user_text):
     print("|" + " " * padding + text + " " * (box_width - len(text) - padding - 2) + "|")
     print("=" * box_width)
 
+# Main function that drives the CLI menu
 def main():
     display_message("Welcome to PyAuth System")
     while True:
