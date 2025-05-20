@@ -25,7 +25,59 @@ def registration():
             user_details[username] = password
             print("Registration Successful!\n")
             break
-            
+
+# Login function
+def login():
+    print("\n")
+    display_message("Enter your credentials to Login!")
+    counter = 1
+    while counter < 4:
+        username = input("Username: ").strip()
+        password = input("Password: ").strip()
+
+        if username in user_details:
+            if user_details[username] == password:
+                print("\n")
+                display_message("Welcome, Login Successful!")
+                while True:
+                    print("\n--- Menu ---")
+                    print("1. View Profile")
+                    print("2. Change password")
+                    print("3. Logout")
+                    try:
+                        menu = int(input("Enter 1/2/3: "))
+                    except ValueError:
+                        print("Invalid input.\n")
+                        continue
+                    match menu:
+                        case 1:
+                            print("\n")
+                            display_message("Profile Details")
+                            print(f"Username: {username}")
+                            i = 1
+                            print("Password: ", sep="", end="")
+                            while i < len(user_details[username]) - 1:
+                                print("*", sep="", end="")
+                                i = i + 1
+                            print(user_details[username][-2:])
+                        case 2:
+                            print("Feature coming soon!")  # Will be added later
+                        case 3:
+                            print("You have been logged out successfully.\n")
+                            break
+                        case _:
+                            print("Invalid option.\n")
+                break
+            else:
+                print(f"Incorrect password. {3 - counter} attempt(s) left.\n")
+        else:
+            if counter < 3:
+                print(f"Username not found. {3 - counter} attempt(s) left.\n")
+
+        counter += 1
+        if counter == 4:
+            print("Too many failed attempts. Access denied.\n")
+
 # Main function that drives the CLI menu
 def main():
     display_message("Welcome to PyAuth System")
@@ -43,7 +95,7 @@ def main():
                 case 1:
                     registration()
                 case 2:
-                    print("Login function coming soon")
+                    login()
                 case 3:
                     print("Exit successful")
                     return
