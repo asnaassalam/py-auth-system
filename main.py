@@ -26,6 +26,18 @@ def registration():
             print("Registration Successful!\n")
             break
 
+# Password change function
+def change_password(username):
+    print("\n")
+    display_message("Change Password")
+    old_password = input("Old Password: ")
+    if user_details[username] == old_password:
+        new_password = input("New Password: ")
+        user_details[username] = new_password
+        print("Password changed Successfully.")
+    else:
+        print("Incorrect Password. Please try again.\n")
+
 # Login function
 def login():
     print("\n")
@@ -61,7 +73,7 @@ def login():
                                 i = i + 1
                             print(user_details[username][-2:])
                         case 2:
-                            print("Feature coming soon!")  # Will be added later
+                            change_password(username)
                         case 3:
                             print("You have been logged out successfully.\n")
                             break
