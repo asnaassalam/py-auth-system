@@ -7,8 +7,8 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 ### ⏳ Phase 1: CLI (In-Memory Dictionary)
 - [x] Register new users
 - [x] Login existing users
-- [ ] View user profile
-- [ ] Change/reset Password
+- [x] View user profile
+- [x] Change/reset Password
 - [ ] Basic CLI interface
 
 ### ⏳ Phase 2: File-Based Storage
