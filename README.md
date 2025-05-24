@@ -9,7 +9,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Login existing users
 - [x] View user profile
 - [x] Change/reset Password
-- [ ] Basic CLI interface
+- [x] Basic CLI interface
 
 ### ⏳ Phase 2: File-Based Storage
 - [ ] Save user data in JSON file
