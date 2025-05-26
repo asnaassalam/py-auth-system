@@ -46,7 +46,6 @@ def login():
     while counter < 4:
         username = input("Username: ").strip()
         password = input("Password: ").strip()
-
         if username in user_details:
             if user_details[username] == password:
                 print("\n")
@@ -85,7 +84,6 @@ def login():
         else:
             if counter < 3:
                 print(f"Username not found. {3 - counter} attempt(s) left.\n")
-
         counter += 1
         if counter == 4:
             print("Too many failed attempts. Access denied.\n")
