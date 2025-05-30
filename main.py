@@ -1,3 +1,6 @@
+# Import json module
+import json
+
 # Function to display a styled message box
 def display_message(user_text):
     box_width = 36
@@ -7,10 +10,9 @@ def display_message(user_text):
     print("|" + " " * padding + text + " " * (box_width - len(text) - padding - 2) + "|")
     print("=" * box_width)
 
-# Stores existing users and their passwords (in-memory storage for now)
-user_details = {
-    "demo_user": "demo123"
-}
+# Loads existing users from users.json file
+with open("users.json", "r") as file1:
+    user_details = json.load(file1)
 
 # Registration function
 def registration():
@@ -23,6 +25,8 @@ def registration():
         else:
             password = input("Password: ")
             user_details[username] = password
+            with open("users.json", "w") as file2:
+                json.dump(user_details, file2, indent=4)
             print("Registration Successful!\n")
             break
 
