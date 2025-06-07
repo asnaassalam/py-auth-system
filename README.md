@@ -14,7 +14,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 ### ⏳ Phase 2: File-Based Storage
 - [x] Save user data in JSON file
 - [x] Load data at startup
-- [ ] Prevent duplicate registrations
+- [x] Prevent duplicate registrations
 
 ### ⏳ Phase 3: Password Hashing
 - [ ] Secure password storage using `hashlib`
