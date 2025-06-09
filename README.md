@@ -11,7 +11,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Change/reset Password
 - [x] Basic CLI interface
 
-### ⏳ Phase 2: File-Based Storage
+### ✅ Phase 2: File-Based Storage
 - [x] Save user data in JSON file
 - [x] Load data at startup
 - [x] Prevent duplicate registrations
