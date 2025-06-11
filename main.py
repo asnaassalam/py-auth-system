@@ -19,16 +19,24 @@ def registration():
     print("\n")
     display_message("Register Here!")
     while True:
-        username = input("Username: ")
+        username = input("Username: ").strip()
+        if not username:
+            print("Username can not be empty.")
+            continue
         if username in user_details:
             print("User already exists. Please enter another username.\n")
-        else:
-            password = input("Password: ")
-            user_details[username] = password
-            with open("users.json", "w") as file2:
-                json.dump(user_details, file2, indent=4)
-            print("Registration Successful!\n")
-            break
+        while True:
+            password = input("Password: ").strip()
+            if not password:
+                print("Password can not be empty.")
+                continue
+            else:
+                user_details[username] = password
+                with open("users.json", "w") as file2:
+                    json.dump(user_details, file2, indent=4)
+                    print("Registration Successful!\n")
+                return
+
 
 # Password change function
 def change_password(username):
