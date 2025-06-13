@@ -21,22 +21,21 @@ def registration():
     while True:
         username = input("Username: ").strip()
         if not username:
-            print("Username can not be empty.")
+            print("\033[31mUsername can not be empty.\033[0m")
             continue
         if username in user_details:
-            print("User already exists. Please enter another username.\n")
+            print("\033[31mUser already exists. Please enter another username.\n\033[0m")
         while True:
             password = input("Password: ").strip()
             if not password:
-                print("Password can not be empty.")
+                print("\033[31mPassword can not be empty.\033[0m")
                 continue
             else:
                 user_details[username] = password
                 with open("users.json", "w") as file2:
                     json.dump(user_details, file2, indent=4)
-                    print("Registration Successful!\n")
+                    print("\033[32mRegistration Successful!\n\033[0m")
                 return
-
 
 # Password change function
 def change_password(username):
@@ -46,9 +45,9 @@ def change_password(username):
     if user_details[username] == old_password:
         new_password = input("New Password: ")
         user_details[username] = new_password
-        print("Password changed Successfully.")
+        print("\033[32mPassword changed Successfully.\033[0m")
     else:
-        print("Incorrect Password. Please try again.\n")
+        print("\033[31mIncorrect Password. Please try again.\n\033[0m")
 
 # Login function
 def login():
@@ -70,7 +69,7 @@ def login():
                     try:
                         menu = int(input("Enter 1/2/3: "))
                     except ValueError:
-                        print("Invalid input.\n")
+                        print("\033[31mInvalid input.\n\033[0m")
                         continue
                     match menu:
                         case 1:
@@ -86,19 +85,19 @@ def login():
                         case 2:
                             change_password(username)
                         case 3:
-                            print("You have been logged out successfully.\n")
+                            print("\033[32mYou have been logged out successfully.\n\033[0m")
                             break
                         case _:
-                            print("Invalid option.\n")
+                            print("\033[31mInvalid option.\n\033[0m")
                 break
             else:
-                print(f"Incorrect password. {3 - counter} attempt(s) left.\n")
+                print(f"\033[31mIncorrect password. {3 - counter} attempt(s) left.\n\033[0m")
         else:
             if counter < 3:
-                print(f"Username not found. {3 - counter} attempt(s) left.\n")
+                print(f"\033[31mUsername not found. {3 - counter} attempt(s) left.\n\033[0m")
         counter += 1
         if counter == 4:
-            print("Too many failed attempts. Access denied.\n")
+            print("\033[31mToo many failed attempts. Access denied.\n\033[0m")
 
 # Main function that drives the CLI menu
 def main():
@@ -111,7 +110,7 @@ def main():
         try:
             main_menu = int(input("Enter 1/2/3: "))
         except ValueError:
-            print("Invalid Input. Please enter a valid input.\n")
+            print("\033[31mInvalid Input. Please enter a valid input.\n\033[0m")
         else:
             match main_menu:
                 case 1:
@@ -119,7 +118,7 @@ def main():
                 case 2:
                     login()
                 case 3:
-                    print("Exit successful")
+                    print("\033[32mExit successful\033[0m")
                     return
 
 main()          
