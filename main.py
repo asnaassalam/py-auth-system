@@ -1,5 +1,7 @@
 # Import json module
 import json
+# Import hashlib module for password hashing using SHA-256
+import hashlib
 
 # Function to display a styled message box
 def display_message(user_text):
@@ -9,6 +11,10 @@ def display_message(user_text):
     print("=" * box_width)
     print("|" + " " * padding + text + " " * (box_width - len(text) - padding - 2) + "|")
     print("=" * box_width)
+
+# Takes a plain text password, encodes it, and returns the hexadecimal hash
+def hash_password(password):
+    return hashlib.sha256(password.encode()).hexdigest()
 
 # Loads existing users from users.json file
 with open("users.json", "r") as file1:
