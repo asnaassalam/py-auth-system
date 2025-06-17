@@ -17,7 +17,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Prevent duplicate registrations
 
 ### ⏳ Phase 3: Password Hashing
-- [ ] Secure password storage using `hashlib`
+- [x] Secure password storage using `hashlib`
 - [ ] Password verification during login
 
 ### ⏳ Phase 4: Input Validation
