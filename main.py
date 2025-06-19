@@ -37,7 +37,7 @@ def registration():
                 print("\033[31mPassword can not be empty.\033[0m")
                 continue
             else:
-                user_details[username] = password
+                user_details[username] = hash_password(password)
                 with open("users.json", "w") as file2:
                     json.dump(user_details, file2, indent=4)
                     print("\033[32mRegistration Successful!\n\033[0m")
@@ -47,11 +47,14 @@ def registration():
 def change_password(username):
     print("\n")
     display_message("Change Password")
-    old_password = input("Old Password: ")
-    if user_details[username] == old_password:
+    old_password = input("Old Password: ").strip()
+    if user_details[username] == hash_password(old_password):
         new_password = input("New Password: ")
-        user_details[username] = new_password
-        print("\033[32mPassword changed Successfully.\033[0m")
+        if not new_password:
+            print("\033[31mPassword can not be empty.\n\033[0m")
+        else:
+            user_details[username] = hash_password(new_password)
+            print("\033[32mPassword changed Successfully.\033[0m")
     else:
         print("\033[31mIncorrect Password. Please try again.\n\033[0m")
 
@@ -64,7 +67,7 @@ def login():
         username = input("Username: ").strip()
         password = input("Password: ").strip()
         if username in user_details:
-            if user_details[username] == password:
+            if user_details[username] == hash_password(password):
                 print("\n")
                 display_message("Welcome, Login Successful!")
                 while True:
