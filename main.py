@@ -2,6 +2,8 @@
 import json
 # Import hashlib module for password hashing using SHA-256
 import hashlib
+# Import re module for regular expression operations
+import re
 
 # Function to display a styled message box
 def display_message(user_text):
@@ -16,26 +18,59 @@ def display_message(user_text):
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
 
-# Loads existing users from users.json file
-with open("users.json", "r") as file1:
-    user_details = json.load(file1)
+# Try to load existing user details from a JSON file
+try:
+    with open("users.json", "r") as file1:
+        user_details = json.load(file1)
+except FileNotFoundError:
+    user_details = {}
 
+# Function to validate username
+def validateUsername(username, user_details=user_details):
+    if not username:
+        return "Username cannot be empty."
+    elif username in user_details:
+        return "User already exists. Please enter another username."     
+    elif len(username) < 8:
+        return "Username must be less than 8 characters."
+    elif " " in username:
+        return "Username cannot contain spaces."
+    elif not re.match(r'^[a-z0-9_]+$', username):
+        return "Username can only contain simple letters, numbers and underscores."
+    return None  
+
+# Function to validate password
+def validatePassword(password):
+    if not password:
+        return "Password cannot be empty."  
+    elif len(password) < 6:
+        return "Password must be at least 6 characters long."
+    elif not re.search(r'[A-Z]', password):
+        return "Password must contain at least one uppercase letter."
+    elif not re.search(r'[a-z]', password):
+        return "Password must contain at least one lowercase letter."
+    elif not re.search(r'[0-9]', password):
+        return "Password must contain at least one digit."
+    elif not re.search(r'[!@#$%^&*(),.?":{}|<>]', password):
+        return "Password must contain at least one special character."
+    return None      
+       
 # Registration function
 def registration():
     print("\n")
     display_message("Register Here!")
     while True:
         username = input("Username: ").strip()
-        if not username:
-            print("\033[31mUsername can not be empty.\033[0m")
+        username_error = validateUsername(username)
+        if username_error:
+            print(f"\033[31m{username_error}\033[0m")
             continue
-        if username in user_details:
-            print("\033[31mUser already exists. Please enter another username.\n\033[0m")
         while True:
             password = input("Password: ").strip()
-            if not password:
-                print("\033[31mPassword can not be empty.\033[0m")
-                continue
+            password_error = validatePassword(password)
+            if password_error:
+                print(f"\033[31m{password_error}\033[0m")
+                continue             
             else:
                 user_details[username] = hash_password(password)
                 with open("users.json", "w") as file2:
@@ -50,8 +85,9 @@ def change_password(username):
     old_password = input("Old Password: ").strip()
     if user_details[username] == hash_password(old_password):
         new_password = input("New Password: ")
-        if not new_password:
-            print("\033[31mPassword can not be empty.\n\033[0m")
+        password_error = validatePassword(new_password)
+        if password_error:
+            print(f"\033[31m{password_error}\033[0m")
         else:
             user_details[username] = hash_password(new_password)
             print("\033[32mPassword changed Successfully.\033[0m")
