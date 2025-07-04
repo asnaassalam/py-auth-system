@@ -21,8 +21,8 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Password verification during login
 
 ### ⏳ Phase 4: Input Validation
-- [ ] Validate email format
-- [ ] Enforce password strength
+- [x] Validate username
+- [x] Enforce password strength
 - [ ] Meaningful error messages
 
 ### ⏳ Phase 5: GUI with Tkinter
