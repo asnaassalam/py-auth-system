@@ -20,10 +20,10 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Secure password storage using `hashlib`
 - [x] Password verification during login
 
-### ⏳ Phase 4: Input Validation
+### ✅ Phase 4: Input Validation
 - [x] Validate username
 - [x] Enforce password strength
-- [ ] Meaningful error messages
+- [x] Meaningful error messages
 
 ### ⏳ Phase 5: GUI with Tkinter
 - [ ] Register/Login forms with Tkinter
