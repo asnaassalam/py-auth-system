@@ -108,4 +108,3 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## ✍️ Author
 [Asna Assalam](https://github.com/asnaassalam)
-> This project was built as part of my self-learning journey to apply and strengthen my understanding of Python through hands-on practice.
