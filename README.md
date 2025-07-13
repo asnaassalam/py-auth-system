@@ -49,7 +49,7 @@ py-auth-system/
 ├── gui-version/
 │   ├── register.py          # GUI Register window
 │   ├── login.py             # GUI Login window
-│   └── welcome.py           # Welcome window after login
+│   └── welcome.py           # GUI Welcome window after login
 │
 ├── users.json               # Shared user data file
 └── README.md                # Project overview
@@ -67,7 +67,6 @@ py-auth-system/
 ---
 
 ### 🪟 GUI Version
-
 > 🛑 Requires `customtkinter`. Install it first:
 
 ```bash
@@ -80,11 +79,10 @@ pip install customtkinter
    python register.py
    ```
 
-> 🔄 You can navigate between **Register** and **Login** windows via links.  
+> 🔄 Users can switch between **Register** and **Login** windows using clickable links.  
 > ✅ On successful login, a **Welcome** window will appear with a **Reset Password** and **Logout** button.
 
 ## ✅ Best Practices Followed
-
 - Passwords are **hashed** before storing  
 - Plaintext passwords are **never** saved  
 - Includes **input validation** and **error handling**  
@@ -92,12 +90,10 @@ pip install customtkinter
 - GUI code uses **modular window design**
 
 ## 📌 Notes
-
 - The `users.json` file stores hashed passwords only. No plaintext passwords are stored.
 - For demo/testing, use this default test account:
   - **Username**: `demo_user`
   - **Password**: `Demo@123`
-
 
 ## 🧠 Concepts Covered
 - File Handling
@@ -106,5 +102,10 @@ pip install customtkinter
 - GUI Development with customtkinter
 - Modular Python Code
 
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
+
+
 ## ✍️ Author
 [Asna Assalam](https://github.com/asnaassalam)
+> This project was built as part of my self-learning journey to apply and strengthen my understanding of Python through hands-on practice.
