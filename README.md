@@ -26,11 +26,11 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Meaningful error messages
 
 ### ⏳ Phase 5: GUI with customtkinter
-- [ ] Register/Login screens with modern UI  
-- [ ] Message boxes for success/failure feedback  
-- [ ] Password masking  
+- [x] Register/Login screens with modern UI  
+- [x] Message boxes for success/failure feedback  
+- [x] Password masking  
 - [ ] Separate windows for Register, Login, and Welcome  
-- [ ] Navigation between Register and Login screens  
+- [x] Navigation between Register and Login screens  
 - [ ] Change/reset password 
 - [ ] Logout functionality
 
