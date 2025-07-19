@@ -29,10 +29,10 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Register/Login screens with modern UI  
 - [x] Message boxes for success/failure feedback  
 - [x] Password masking  
-- [ ] Separate windows for Register, Login, and Welcome  
+- [x] Separate windows for Register, Login, and Welcome  
 - [x] Navigation between Register and Login screens  
-- [ ] Change/reset password 
-- [ ] Logout functionality
+- [x] Change/reset password 
+- [x] Logout functionality
 
 ## 🛠️ Tech Stack
 - Python 3.x  
