@@ -57,7 +57,7 @@ py-auth-system/
 │   ├── reset_password.png
 │   └── welcome_window.png
 │
-├── LICENSE.md               # MIT License
+├── LICENSE                  # MIT License
 ├── users.json               # Shared user data file
 └── README.md                # Project overview
 ```
