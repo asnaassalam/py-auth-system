@@ -51,6 +51,13 @@ py-auth-system/
 │   ├── login.py             # GUI Login window
 │   └── welcome.py           # GUI Welcome window after login
 │
+├── UI-Screenshots/          # UI previews
+│   ├── login_window.png
+│   ├── register_window.png
+│   ├── reset_password.png
+│   └── welcome_window.png
+│
+├── LICENSE.md               # MIT License
 ├── users.json               # Shared user data file
 └── README.md                # Project overview
 ```
