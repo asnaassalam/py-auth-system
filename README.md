@@ -25,7 +25,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Enforce password strength
 - [x] Meaningful error messages
 
-### ⏳ Phase 5: GUI with customtkinter
+### ✅ Phase 5: GUI with customtkinter
 - [x] Register/Login screens with modern UI  
 - [x] Message boxes for success/failure feedback  
 - [x] Password masking  
