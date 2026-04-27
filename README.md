@@ -1,118 +1,141 @@
 # 🔐 Py Auth System
 
-A step-by-step evolving project that begins as a simple CLI-based login/register app using Python dictionaries and gradually transforms into a secure, GUI-based user authentication system using file storage and password hashing.
+A step-by-step evolving project that begins as a simple CLI-based login/register app and gradually transforms into a fully secure, cloud-hosted authentication system with REST API and JWT.
 
-## 🚀 Project Phases & Features
-
-### ✅ Phase 1: CLI (In-Memory Dictionary)
-- [x] Register new users
-- [x] Login existing users
-- [x] View user profile
-- [x] Change/reset Password
-- [x] Basic CLI interface
-
-### ✅ Phase 2: File-Based Storage
-- [x] Save user data in JSON file
-- [x] Load data at startup
-- [x] Prevent duplicate registrations
-
-### ✅ Phase 3: Password Hashing
-- [x] Secure password storage using `hashlib`
-- [x] Password verification during login
-
-### ✅ Phase 4: Input Validation
-- [x] Validate username
-- [x] Enforce password strength
-- [x] Meaningful error messages
-
-### ✅ Phase 5: GUI with customtkinter
-- [x] Register/Login screens with modern UI  
-- [x] Message boxes for success/failure feedback  
-- [x] Password masking  
-- [x] Separate windows for Register, Login, and Welcome  
-- [x] Navigation between Register and Login screens  
-- [x] Change/reset password 
-- [x] Logout functionality
-
-## 🛠️ Tech Stack
-- Python 3.x  
-- `hashlib` – for password hashing  
-- `json` – for user data persistence  
-- `customtkinter` – for modern and themed GUI components 
-
-## 📁 Folder Structure
-```
-py-auth-system/
-├── cli-version/              
-│   └── main.py              # CLI-based logic
-│
-├── gui-version/
-│   ├── register.py          # GUI Register window
-│   ├── login.py             # GUI Login window
-│   └── welcome.py           # GUI Welcome window after login
-│
-├── UI-Screenshots/          # UI previews
-│   ├── login_window.png
-│   ├── register_window.png
-│   ├── reset_password.png
-│   └── welcome_window.png
-│
-├── LICENSE                  # MIT License
-├── users.json               # Shared user data file
-└── README.md                # Project overview
-```
-
-## ▶️ How to Run
-
-### 💻 CLI Version
-1. Navigate to the `cli-version` folder:
-   ```bash
-   cd cli-version
-   python main.py
-   ```
+> 🌿 Each phase lives in its own branch. `main` always reflects the latest complete version.
 
 ---
 
-### 🪟 GUI Version
-> 🛑 Requires `customtkinter`. Install it first:
+## 🌿 Branch Structure
 
-```bash
-pip install customtkinter
+| Branch | Description | Status |
+|---|---|---|
+| `v1-functional` | Original functional version (CLI + GUI) | ✅ Complete |
+| `feature/oop` | OOP refactor with clean class structure | ✅ Complete |
+| `feature/jwt` | REST API with FastAPI and JWT auth | 🔜 Coming Soon |
+| `feature/aws` | Cloud deployment on AWS | 🔜 Coming Soon |
+
+---
+
+## 🚀 Project Phases
+
+### ✅ Phase 1 — Functional Version (`v1-functional`)
+- [x] CLI register, login, profile, change password
+- [x] JSON file storage
+- [x] Password hashing with `hashlib`
+- [x] Input validation
+- [x] GUI with `customtkinter`
+
+### 🔄 Phase 2 — OOP Refactor (`feature/oop`)
+- [x] `User` class with properties and setters
+- [x] `Validator` class for all validation rules
+- [x] `FileStorage` class for JSON read/write
+- [x] `AuthManager` class coordinating all logic
+- [x] Rebuilt GUI with `tkinter`
+
+### 🔜 Phase 3 — REST API + JWT (`feature/jwt`)
+- [ ] FastAPI backend
+- [ ] JWT authentication
+- [ ] MySQL database with SQLAlchemy ORM
+- [ ] Bcrypt password hashing
+- [ ] Pydantic request validation
+- [ ] CORS and environment variable configuration
+
+### 🔜 Phase 4 — Cloud Deployment (`feature/aws`)
+- [ ] Dockerized application
+- [ ] AWS EC2 + RDS (MySQL) deployment
+- [ ] SSL certificate via ACM
+- [ ] GitHub Actions CI/CD pipeline
+
+---
+
+## 🛠️ Tech Stack
+
+| Phase | Tools |
+|---|---|
+| Phase 1 | Python, `hashlib`, `json`, `customtkinter` |
+| Phase 2 | Python OOP, `tkinter` |
+| Phase 3 | FastAPI, JWT, MySQL, SQLAlchemy, Bcrypt, PyMySQL |
+| Phase 4 | Docker, AWS EC2, AWS RDS, GitHub Actions |
+
+---
+
+## 📁 Folder Structure
+
+```
+py-auth-system/
+├── oop_version/
+│   ├── auth_gui.py        # tkinter GUI
+│   ├── auth_manager.py    # Register and login logic
+│   ├── file_storage.py    # JSON read/write
+│   ├── user.py            # User class with properties and setters
+│   └── validator.py       # All validation rules
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
-2. Navigate to the `gui-version` folder:
-   ```bash
-   cd gui-version
-   python register.py
-   ```
+---
 
-> 🔄 Users can switch between **Register** and **Login** windows using clickable links.  
-> ✅ On successful login, a **Welcome** window will appear with a **Reset Password** and **Logout** button.
+## ⚙️ Setup & Installation
+
+> **Prerequisites:** Python 3.x — tkinter is included with Python by default, no installation needed.
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/asnaassalam/py-auth-system.git
+cd py-auth-system
+```
+
+---
+
+## ▶️ How to Run
+
+### Current Version (OOP — Phase 2)
+```bash
+cd oop_version
+python auth_gui.py
+```
+
+### Original Version (Functional — Phase 1)
+Switch to the `v1-functional` branch:
+```bash
+git checkout v1-functional
+```
+Then follow the instructions in that branch's README.
+
+---
 
 ## ✅ Best Practices Followed
-- Passwords are **hashed** before storing  
-- Plaintext passwords are **never** saved  
-- Includes **input validation** and **error handling**  
-- Clear separation between **CLI** and **GUI** components  
-- GUI code uses **modular window design**
+- Passwords are **hashed** before storing — never saved as plaintext
+- **Input validation** enforced on both frontend and backend layers
+- Clear **separation of concerns** — each class has one job
+- Sensitive files like `users.json` are **excluded from version control**
+
+---
 
 ## 📌 Notes
-- The `users.json` file stores hashed passwords only. No plaintext passwords are stored.
-- For demo/testing, use this default test account:
-  - **Username**: `demo_user`
-  - **Password**: `Demo@123`
+- `users.json` is excluded from the repo via `.gitignore` — it is generated locally on first run
+
+---
 
 ## 🧠 Concepts Covered
-- File Handling
-- Password Hashing & Security
-- JSON-based Data Persistence
-- GUI Development with customtkinter
-- Modular Python Code
+- File Handling and JSON Persistence
+- Password Hashing and Security
+- Object Oriented Programming
+- GUI Development with tkinter
+- REST API Design (coming Phase 3)
+- JWT Authentication (coming Phase 3)
+- Cloud Deployment on AWS (coming Phase 4)
+
+---
 
 ## 📄 License
 This project is licensed under the [MIT License](LICENSE).
 
+---
 
 ## ✍️ Author
 [Asna Assalam](https://github.com/asnaassalam)
-> This project was built as part of my self-learning journey to apply and strengthen my understanding of Python through hands-on practice.
+
+> Built as part of my self-learning journey from beginner Python scripts to a full production-grade authentication system.
