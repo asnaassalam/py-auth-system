@@ -1,4 +1,3 @@
-import hashlib
 import json
 from pathlib import Path
 from user import User
@@ -60,12 +59,8 @@ class FileStorage:
     def check_user(self, username, password):
         user_detail = self.user_details.get(username)
         if not user_detail:
-            return "User not found", None
-
-        if user_detail.get("password") == hashlib.sha256(password.encode()).hexdigest():
-            return "User found", User.from_storage(user_detail)
-        else:
-            return "Incorrect password", None
+            return None
+        return user_detail
 
 
     def check_username_exists(self, username):

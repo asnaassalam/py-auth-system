@@ -1,15 +1,19 @@
 import re
 
 class Validator:
+    @staticmethod
     def validateName(name):
         name = name.strip()
         if not name:
             raise ValueError("Name can not be empty.")
+        elif len(name) < 2:
+            raise ValueError("Name must be at least 2 characters.")  
         elif not re.match(r'^[A-Za-z]{2,30}$', name):
-            raise ValueError("Name can only contain letters and must be between 2 and 30 characters.")
+            raise ValueError("Name can only contain letters.")
         else:
             return None
 
+    @staticmethod
     def validateUsername(username):
         if not username:
             raise ValueError("Username can not be empty.")
@@ -24,6 +28,7 @@ class Validator:
         else:
             return None
 
+    @staticmethod
     def validatePassword(password):
         if not password:
             raise ValueError("Password can not be empty.")

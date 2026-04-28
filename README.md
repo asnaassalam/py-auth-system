@@ -26,7 +26,7 @@ A step-by-step evolving project that begins as a simple CLI-based login/register
 - [x] Input validation
 - [x] GUI with `customtkinter`
 
-### 🔄 Phase 2 — OOP Refactor (`feature/oop`)
+### ✅ Phase 2 — OOP Refactor (`feature/oop`)
 - [x] `User` class with properties and setters
 - [x] `Validator` class for all validation rules
 - [x] `FileStorage` class for JSON read/write
@@ -70,10 +70,37 @@ py-auth-system/
 │   ├── file_storage.py    # JSON read/write
 │   ├── user.py            # User class with properties and setters
 │   └── validator.py       # All validation rules
+├── screenshots/
+│   ├── dashboard.png    
+│   ├── login.png            
+│   └── register.png
 ├── .gitignore
 ├── LICENSE
 └── README.md
 ```
+
+---
+
+## 📸 Screenshots
+
+### Login
+
+
+![Login](screenshots/login.png)
+
+
+
+### Register
+
+
+![Register](screenshots/register.png)
+
+
+
+### Dashboard
+
+
+![Dashboard](screenshots/dashboard.png)
 
 ---
 
@@ -138,4 +165,4 @@ This project is licensed under the [MIT License](LICENSE).
 ## ✍️ Author
 [Asna Assalam](https://github.com/asnaassalam)
 
-> Built as part of my self-learning journey from beginner Python scripts to a full production-grade authentication system.
+> Built as a part of my self-learning journey from beginner Python scripts to a full production-grade authentication system.

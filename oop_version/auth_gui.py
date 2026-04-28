@@ -626,15 +626,16 @@ class AuthApp(tk.Tk):
             return
 
         status, user = am.login(username, password)
-        print(f"Login -> username={username}")
 
         if status == "User found":
             fullname = user.fullname() if user else username
             self._clear_login_fields()
             self._toast.show("Logged in successfully!", "success")
             self.after(800, lambda: self._open_dashboard(fullname))
+            print(f"Login Success -> username={username}")
         else:
             self._toast.show("Invalid username or password.", "error")
+            print(f"Login Failed -> username={username}")
 
 
     def _handle_register(self):
@@ -665,13 +666,15 @@ class AuthApp(tk.Tk):
             return
 
         status, message = am.register(firstname, lastname, username, password)
-        print(f"Register -> {firstname} {lastname}, @{username}")
         if status == "success":
             self._clear_register_fields()
             self._toast.show(message + " Please sign in.", "success")
             self.after(1200, lambda: self._show_tab("login"))
+            print(f"Registration Success -> @{username}")
         else:
             self._toast.show(message, "error")
+            print(f"Registration Failed -> @{username}")
+
 
 # ─────────────────────────────────────────
 if __name__ == "__main__":

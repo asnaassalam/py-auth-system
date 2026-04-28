@@ -1,22 +1,31 @@
 from user import User
 from file_storage import FileStorage
-
-storage = FileStorage()
+import hashlib
 
 class AuthManager:
+    storage = FileStorage()
+
+    @staticmethod
     def register(fname, lname, username, password):
         try:
             user = User(fname, lname, username, password)
-            if storage.check_username_exists(username):
+            if AuthManager.storage.check_username_exists(username):
                 return "error", "Username already exists"
         except ValueError as e:
             return "error", str(e)
         else:
-            storage.save_user(user)
+            AuthManager.storage.save_user(user)
             return "success", "User registered successfully"
 
+    @staticmethod
     def login(username, password):  
-        status, user = storage.check_user(username, password)
-        return status, user
+        user_detail = AuthManager.storage.check_user(username, password)
+        if not user_detail:
+            return "error", "User not found"
+        hashed = hashlib.sha256(password.encode()).hexdigest()
+        if user_detail.get("password") == hashed:
+            return "User found", User.from_storage(user_detail)
+        else:
+            return "error", None
         
 
